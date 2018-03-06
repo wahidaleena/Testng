@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Automation QA">
+<!-- <listeners>
+<listener class-name="com.selenium.listener.Listener"></listener>
+</listeners> -->
+<listeners>
+      <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+      <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
+  </listeners>
+
+	<test name="Search items">
+	 
+	<parameter name="url" value="http://automationpractice.com/index.php"></parameter>
+	<parameter name="browser" value="chrome"></parameter>
+		<classes>
+		<class name="com.selenium.script.Searchitems" />
+			<methods>
+
+			<include name="searchitemsFunc"  />
+			</methods>
+		</classes>
+		</test>
+		
+		 <test name="Register Users">
+		
+		<parameter name="url" value="http://automationpractice.com/index.php"></parameter>
+		<parameter name="browser" value="chrome"></parameter>
+		<classes>
+			<class name="com.selenium.script.RegisterUsers" />
+			<methods>
+				<include name="registerUser" />
+				<include name="cart" dependsOnMethods="registerUser"/>
+			</methods>
+		</classes>  
+		
+	</test>
+	
+	<!-- <test name="Add to cart">
+		<classes>
+			<class name="com.selenium.script.AddToCart" />
+			<methods>
+				<include name="cart" />
+			</methods>
+		</classes>
+		
+	</test> -->
+</suite>
